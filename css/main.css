@@ -1,4 +1,15 @@
 body {
+    margin: 0
     background-color: #ddd;
 }
 
+#board{
+    position: relative;
+    width: 100vw;
+    height: 100vh;
+}
+
+#player {
+    background-color: limegreen;
+    position: absolute;
+}
