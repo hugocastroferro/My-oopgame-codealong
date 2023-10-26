@@ -1,6 +1,6 @@
 body {
     margin: 0
-    background-color: #ddd;
+    background-color #ddd;
 }
 
 #board{
@@ -11,5 +11,10 @@ body {
 
 #player {
     background-color: limegreen;
+    position: absolute;
+}
+
+.obstacle{
+    background-color: purple;
     position: absolute;
 }
