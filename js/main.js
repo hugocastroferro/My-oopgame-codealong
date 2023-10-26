@@ -70,15 +70,28 @@ const obstacleArr = []; // will store instances of the class Obstacle
 setInterval(() => {
   const newObstacle = new Obstacle();
   obstacleArr.push(newObstacle);
-}, 2000);
+}, 3000);
 
 
-//move all obstacles (ex. every XXXms, move the obstacles we have in the array)
+//update obstacles
 setInterval(() => {
-  obstacleArr.forEach((obstacle) => {
-    obstacle.moveDown();
+  obstacleArr.forEach((obstacleInstance) => {
+    //move obstacles
+    obstacleInstance.moveDown();
+
+    //detect collision
+    if (
+        player.positionX < obstacleInstance.positionX + obstacleInstance.width &&
+        player.positionX + player.width > obstacleInstance.positionX &&
+        player.positionY < obstacleInstance.positionY + obstacleInstance.height &&
+        player.positionY + player.height > obstacleInstance.positionY
+      ) {
+        // Collision detected!
+        location.href = "./gameover.html"
+      } 
+    
   });
-}, 50);
+}, 30);
 
 
 
