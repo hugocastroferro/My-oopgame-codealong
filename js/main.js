@@ -1,8 +1,8 @@
 class Player {
   constructor() {
     // initialize properties
-    this.height = 10;
-    this.width = 30;
+    this.height = 5;
+    this.width = 10;
     this.positionX = 50 - this.width / 2; // Center the player
     this.positionY = 0;
 
@@ -34,8 +34,8 @@ class Player {
 
 class Obstacle {
   constructor() {
-    this.height = 10;
-    this.width = 30;
+    this.height = 5;
+    this.width = 10;
     this.positionX = Math.floor(Math.random() * (100 - this.width) + 1);
     this.positionY = 100;
     this.obstacleElm = null;
@@ -64,8 +64,11 @@ class Obstacle {
     this.obstacleElm.style.bottom = this.positionY + "vh";
 
     // Remove the obstacle from DOM
-    if (this.positionY < 0) {
+    if (this.positionY < 0 - this.obstacleElm.height) {
       this.obstacleElm.remove();
+
+    // remove from array
+    obstacleArr.shift()
     }
   }
 }
@@ -78,7 +81,7 @@ const obstacleArr = []; // will store instances of the class Obstacle
 setInterval(() => {
   const newObstacle = new Obstacle();
   obstacleArr.push(newObstacle);
-}, 3000);
+}, 350);
 
 //update obstacles
 setInterval(() => {
