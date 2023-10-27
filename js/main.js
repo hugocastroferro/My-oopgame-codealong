@@ -18,7 +18,7 @@ class Player {
   moveLeft() {
     if (this.positionX > 0) {
       // Prevent moving out of the screen
-      this.positionX-= 2;
+      this.positionX -= 2;
       this.playerElm.style.left = this.positionX + "vw";
     }
   }
@@ -26,7 +26,7 @@ class Player {
   moveRight() {
     if (this.positionX + this.width < 100) {
       // Prevent moving out of the screen
-      this.positionX+= 2;
+      this.positionX += 2;
       this.playerElm.style.left = this.positionX + "vw";
     }
   }
@@ -49,7 +49,7 @@ class Obstacle {
     this.obstacleElm2 = document.createElement("div");
 
     // step2: add content or modify
-     this.obstacleElm1.classList.add("obstacle");
+    this.obstacleElm1.classList.add("obstacle");
     this.obstacleElm1.style.width = this.width + "vw";
     this.obstacleElm1.style.height = this.height + "vh";
     this.obstacleElm1.style.left = this.positionX + "vw";
@@ -62,11 +62,11 @@ class Obstacle {
     this.obstacleElm2.style.left = this.positionX + "vw";
     this.obstacleElm2.style.bottom = this.positionY + "vh";
 
-     // step3: append to DOM both obstcles to parent
-     const parentElm = document.getElementById("board");
-     parentElm.appendChild(this.obstacleElm1);
-     parentElm.appendChild(this.obstacleElm2);
-   }
+    // step3: append to DOM both obstcles to parent
+    const parentElm = document.getElementById("board");
+    parentElm.appendChild(this.obstacleElm1);
+    parentElm.appendChild(this.obstacleElm2);
+  }
 
   // modifying position and updating UI for both obstacles
   moveDown() {
@@ -93,7 +93,7 @@ const obstacleArr = []; // will store instances of the class Obstacle
 setInterval(() => {
   const newObstacle = new Obstacle();
   obstacleArr.push(newObstacle);
-}, 300);
+}, 250);
 
 //update obstacles
 setInterval(() => {
